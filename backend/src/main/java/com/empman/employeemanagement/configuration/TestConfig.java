@@ -1,22 +1,24 @@
 package com.empman.employeemanagement.configuration;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.empman.employeemanagement.controllers.EmployeeController;
 import com.empman.employeemanagement.entities.EmployeeAddress;
 import com.empman.employeemanagement.entities.EmployeeEntity;
-import com.empman.employeemanagement.repositories.EmployeeRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    private EmployeeRepository emplRepo;
+    private EmployeeController empCtrl;
 
     @Override
     public void run(String... args) throws Exception {
@@ -35,9 +37,10 @@ public class TestConfig implements CommandLineRunner {
                 .build())
             .department("Construtura")
             .position("Engenheiro Civil")
+            .contractDate(LocalDate.now(ZoneId.of("America/Sao_Paulo")))
             .salary(new BigDecimal(15000))
             .build();
-        emplRepo.save(emp1);
+        empCtrl.insertNewEmployee(emp1);
 
     }
 }
