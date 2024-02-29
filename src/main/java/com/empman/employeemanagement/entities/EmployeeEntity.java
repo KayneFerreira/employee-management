@@ -2,8 +2,6 @@ package com.empman.employeemanagement.entities;
 
 import java.math.BigDecimal;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,13 +10,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "funcionario")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,14 +30,12 @@ public class EmployeeEntity {
 
     private String name;
 
-    @UniqueElements(message = "Este número de CPF já existe na base de dados.")
     @Column(length = 11)
     private String cpf;
 
-    @UniqueElements(message = "Este endereço de email já existe na base de dados.")
+    @Email
     private String email;
 
-    @UniqueElements(message = "Este número de telefone já existe na base de dados.")
     private String phoneNumber;
 
     @OneToOne(cascade = CascadeType.ALL)

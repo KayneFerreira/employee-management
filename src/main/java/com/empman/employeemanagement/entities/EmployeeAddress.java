@@ -1,7 +1,5 @@
 package com.empman.employeemanagement.entities;
 
-import org.springframework.format.annotation.NumberFormat;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "employee_address")
+@Table(name = "endereco_funcionario")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,8 +25,6 @@ public class EmployeeAddress {
     String city;
     String state;
     String country;
-
-    @NumberFormat(pattern = "#####-###")
     String zipCode;
 
 }
