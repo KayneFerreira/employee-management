@@ -13,6 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
+
       <body className={inter.className}>
         <Navbar />
         <div className="container m-4">{children}</div>

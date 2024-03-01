@@ -9,11 +9,21 @@ const Registro = () => {
       <h1>Registro de Colaboradores</h1>
       <hr className="hr" />
 
-      <Accordion title="Dados Gerais">
+      <Accordion
+        title="Dados Gerais"
+        id="accordion-2"
+        contentId="content-1"
+        headingId="heading-1"
+      >
         <FormGeneral />
       </Accordion>
 
-      <Accordion title="Dados de Contato">
+      <Accordion
+        title="Dados do Contato"
+        id="accordion-2"
+        contentId="content-2"
+        headingId="heading-2"
+      >
         <FormContact />
       </Accordion>
     </div>
